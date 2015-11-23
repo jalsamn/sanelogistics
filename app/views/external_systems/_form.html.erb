@@ -1,0 +1,21 @@
+<%= form_for(@external_system) do |f| %>
+  <% if @external_system.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@external_system.errors.count, "error") %> prohibited this external_system from being saved:</h2>
+
+      <ul>
+      <% @external_system.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

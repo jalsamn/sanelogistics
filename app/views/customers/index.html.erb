@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customers  <%= link_to new_customer_path, class: "btn btn-success" do %>
+    <i class="glyphicon glyphicon-plus-sign"></i>
+<% end %></h1> 
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+      <th>Contactname</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.company %></td>
+        <td><%= customer.address1 %></td>
+        <td><%= customer.address2 %></td>
+        <td><%= customer.city %></td>
+        <td><%= customer.state %></td>
+        <td><%= customer.zip %></td>
+        <td><%= customer.phone %></td>
+        <td><%= customer.contactname %></td>
+        <td><%= customer.active %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_customer_path, class: "btn btn-success" do %>
+    <i class="glyphicon glyphicon-plus-sign"> New Customer</i>
+<% end %>
+<h2></h2>
+
+<%= link_to customers_path(format: "csv"), class: "btn btn-success" do %>
+    <i class="glyphicon glyphicon-download"> Export Customers</i>
+<% end %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+  <i class="glyphicon glyphicon-upload"> Import Customers</i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Import Customers</h4>
+      </div>
+      <div class="modal-body">
+        Please note currently, only csv we import is allowed. If you are creating new records please make sure the id
+        field is blank. All records with id fields will be updated with ones in file.
+        
+          <%= bootstrap_form_tag url: '/customers/import' do |f| %>
+            <%= f.file_field :file %>
+            <%= f.submit %>
+          <% end %>
+          <br>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>

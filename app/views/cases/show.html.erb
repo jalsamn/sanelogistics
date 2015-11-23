@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @case.product %>
+</p>
+
+<p>
+  <strong>Quantity in case:</strong>
+  <%= @case.quantity_in_case %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @case.expiration_date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @case.location %>
+</p>
+
+<p>
+  <strong>Case type:</strong>
+  <%= @case.case_type %>
+</p>
+
+<%= link_to 'Edit', edit_case_path(@case) %> |
+<%= link_to 'Back', cases_path %>

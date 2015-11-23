@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing External Systems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @external_systems.each do |external_system| %>
+      <tr>
+        <td><%= external_system.name %></td>
+        <td><%= link_to 'Show', external_system %></td>
+        <td><%= link_to 'Edit', edit_external_system_path(external_system) %></td>
+        <td><%= link_to 'Destroy', external_system, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New External system', new_external_system_path %>

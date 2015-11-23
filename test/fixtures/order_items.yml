@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  upc: 
+  quantity: 9.99
+  order_item_status_id: 
+  order_id: 
+  quantity_picked: 9.99
+
+two:
+  upc: 
+  quantity: 9.99
+  order_item_status_id: 
+  order_id: 
+  quantity_picked: 9.99
