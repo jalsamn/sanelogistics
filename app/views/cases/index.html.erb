@@ -2,7 +2,7 @@
 
 <h1>Listing Cases</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Product</th>
@@ -15,16 +15,16 @@
   </thead>
 
   <tbody>
-    <% @cases.each do |case| %>
+    <% @cases.each do |c| %>
       <tr>
-        <td><%= case.product %></td>
-        <td><%= case.quantity_in_case %></td>
-        <td><%= case.expiration_date %></td>
-        <td><%= case.location %></td>
-        <td><%= case.case_type %></td>
-        <td><%= link_to 'Show', case %></td>
-        <td><%= link_to 'Edit', edit_case_path(case) %></td>
-        <td><%= link_to 'Destroy', case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= c.product %></td>
+        <td><%= c.quantity_in_case %></td>
+        <td><%= c.expiration_date %></td>
+        <td><%= c.location %></td>
+        <td><%= c.case_type %></td>
+        <td><%= link_to 'Show', c %></td>
+        <td><%= link_to 'Edit', edit_case_path(c) %></td>
+        <td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

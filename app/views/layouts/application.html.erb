@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sane Logistics</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sane Logistics</title>
+    
+
+    <!-- Main css styles -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <!-- Main javascript files -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Sane Logistics</a>
-    </div> <!-- end div class="navbar-header" -->
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Orders" %></li>
-        <li><%= link_to "Inventory" %></li>
-        <li><%= link_to "Customers" %></li>
-        <li><%= link_to "Shipments" %></li>
-        <li><%= link_to "Settings" %></li>
-      </ul>
-    </div> <!-- end div class="collapse navbar-collapse" -->
-  </div> <!-- end div class="container" -->
-</div> <!-- end div class="navbar navbar-default navbar-fixed-top" -->
 
-  <% if user_signed_in? %>
-  
-  <p> Hello <%= current_user.name %> - <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %> </p>
-  
-  <br>
-  
-  <% end %>
+    <!-- Wrapper-->
+    <div id="wrapper">
 
-<%= yield %>
+        <!-- Navigation -->
+        <%= render 'layouts/navigation' %>
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg">
+
+            
+
+            <!-- Main view  -->
+            <%= yield %>
+
+            <!-- Footer -->
+            <%= render 'layouts/footer' %>
+
+        </div>
+        <!-- End page wrapper-->
+
+    </div>
+    <!-- End wrapper-->
 
 </body>
 </html>
